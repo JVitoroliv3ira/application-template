@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles(profiles = "h2")
@@ -69,5 +71,20 @@ class UserRepositoryTest {
         User createdUser = this.userRepository.save(payload);
         boolean result = this.userRepository.existsByEmail(createdUser.getEmail());
         assertTrue(result);
+    }
+
+    @Test
+    void find_by_email_should_return_empty_optional_when_user_does_not_exists() {
+        String payload = "payload@payload.com";
+        Optional<User> result = this.userRepository.findByEmail(payload);
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    void find_by_email_should_return_optional_of_user_when_requested_user_exists() {
+        User payload = this.buildUserPayload(null);
+        User expected = this.userRepository.save(payload);
+        Optional<User> result = this.userRepository.findByEmail(payload.getEmail());
+        assertEquals(Optional.of(expected), result);
     }
 }
