@@ -1,0 +1,23 @@
+name: Java CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v2
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+
+    - name: Change directory to API
+      run: cd api
+
+    - name: Run tests with Maven
+      run: ./mvnw clean test -DAPPLICATION_TEMPLATE_API_ACTIVE_PROFILE=h2
