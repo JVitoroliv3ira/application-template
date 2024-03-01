@@ -16,8 +16,5 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Change directory to API
-      run: cd api
-
     - name: Run tests with Maven
-      run: mvn clean test -DAPPLICATION_TEMPLATE_API_ACTIVE_PROFILE=h2
+      run: cd api && mvn clean test -DAPPLICATION_TEMPLATE_API_ACTIVE_PROFILE=h2
