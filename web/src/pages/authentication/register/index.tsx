@@ -1,7 +1,7 @@
 const RegisterPage = () => {
   return (
-    <div>
-      <h1>Register Page</h1>
+    <div className="max-w-full w-full h-screen bg-slate-300">
+      
     </div>
   );
 }
