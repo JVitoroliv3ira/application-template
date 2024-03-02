@@ -1,3 +1,5 @@
+import './global/styles/reset.css';
+
 function App() {
   return (
     <div>
