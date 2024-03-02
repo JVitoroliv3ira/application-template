@@ -1,11 +1,8 @@
 import './global/styles/reset.css';
+import AppRouter from './routes';
 
 function App() {
-  return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
-  )
+  return <AppRouter />
 }
 
-export default App
+export default App;
