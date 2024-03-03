@@ -53,7 +53,7 @@ const LoginPage = () => {
       const response = await userAuthenticationService(request);
       handleServiceResponse(response);
     } catch (e) {
-      toast.error("Ocorreu um erro desconhecido durante o cadastro do usuário.");
+      toast.error("Ocorreu um erro desconhecido durante a autenticação.");
     } finally {
       setLoading(false);
     }
