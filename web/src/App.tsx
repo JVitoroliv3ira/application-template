@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './global/styles/reset.css';
 import './global/styles/base.css';
 import AppRouter from './routes';
