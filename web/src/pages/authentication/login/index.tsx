@@ -1,14 +1,18 @@
-import { useState } from "react";
-import UnauthenticatedLayout from "../../../components/templates/unauthenticated-layout";
-import { useNavigate } from "react-router-dom";
-import UserAuthenticationRequestDTO, { validationSchema } from "../../../core/dtos/requests/user-authentication-request.dto";
 import { Field, Form, Formik } from "formik";
-import loadingIcon from '../../../global/assets/dots.svg';
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { z } from "zod";
+
+import UnauthenticatedLayout from "../../../components/templates/unauthenticated-layout";
+
+import UserAuthenticationRequestDTO, { validationSchema } from "../../../core/dtos/requests/user-authentication-request.dto";
 import ApiResponseDTO from "../../../core/dtos/responses/api-response.dto";
 import AuthenticatedUserResponseDTO from "../../../core/dtos/responses/authenticated-user-response.dto";
-import { z } from "zod";
-import { toast } from "react-toastify";
+
 import userAuthenticationService, { saveEmail, saveToken } from "../../../core/services/user-authentication.service";
+
+import loadingIcon from '../../../global/assets/dots.svg';
 
 const LoginPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
